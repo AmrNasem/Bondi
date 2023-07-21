@@ -1,0 +1,78 @@
+:root {
+  --dark-color: #19283f;
+  --green-color: #33d1cc;
+  --button-background: #ff3150;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+/* Start Nav */
+nav.navbar {
+  background-color: var(--dark-color);
+}
+form#search-id.collapsing,
+form#search-id.show {
+  display: flex;
+  flex: 1;
+  flex-basis: 100%;
+}
+form#search-id button {
+  color: var(--green-color);
+  border-color: var(--green-color);
+}
+.menu-bar[aria-expanded="true"] {
+  border-color: var(--green-color) !important;
+}
+.navbar-nav .nav-link {
+  color: white;
+  transition: 0.3s;
+}
+.navbar-nav .nav-link.active {
+  color: var(--green-color);
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:active {
+  color: var(--green-color);
+}
+.search-icon {
+  color: var(--green-color);
+}
+.search-toggler {
+  position: relative;
+}
+.search-toggler::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 55%;
+  background-color: var(--green-color);
+}
+@media (max-width: 768px) {
+  .search-toggler::before {
+    display: none;
+  }
+}
+button.login {
+  background-color: var(--button-background);
+}
+button.login:hover,
+button.login:focus {
+  background-color: var(--button-background);
+}
+
+/* End Nav */
+/* Start Home */
+.home {
+  background-color: var(--dark-color);
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+}
+.home .content button {
+  background-color: var(--button-background);
+}
+/* End Home */
