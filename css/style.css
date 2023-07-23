@@ -2,9 +2,23 @@
   --dark-color: #19283f;
   --green-color: #33d1cc;
   --button-background: #ff3150;
+  --section-color: #eff7fa;
 }
 body {
   font-family: "Roboto", sans-serif;
+}
+.main-title p {
+  font-size: 0.8rem;
+}
+.main-title::after {
+  content: "";
+  width: 120px;
+  height: 2px;
+  background-color: var(--green-color);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 /* Start Nav */
 nav.navbar {
@@ -76,3 +90,19 @@ button.login:focus {
   background-color: var(--button-background);
 }
 /* End Home */
+/* Start Services */
+.feat .icons-holder {
+  height: 200px;
+}
+.feat .icons-holder svg {
+  transform: translateX(-50%);
+}
+.feat .icons-holder .number {
+  height: 100%;
+  color: var(--section-color);
+}
+.feat .icons-holder .main-icon {
+  color: var(--green-color);
+  font-size: 3.3rem;
+}
+/* End Services */
