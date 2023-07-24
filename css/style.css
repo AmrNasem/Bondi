@@ -7,6 +7,9 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+.main-title h2 {
+  color: var(--dark-color);
+}
 .main-title p {
   font-size: 0.8rem;
 }
@@ -106,3 +109,64 @@ button.login:focus {
   font-size: 3.3rem;
 }
 /* End Services */
+/* Start Portfolio */
+.portfolio {
+  background-color: var(--section-color);
+}
+.modal1 {
+  background-color: #0000009b;
+  z-index: 2000;
+}
+.modal1 .project {
+  transform: translateY(-50%);
+}
+.modal1 .project .image {
+  max-width: 900px;
+}
+.modal1 .project .image .dismiss {
+  width: 30px;
+  height: 30px;
+  right: 5px;
+  border: none;
+  transform: translate(50%, -50%);
+  background-color: var(--button-background);
+}
+.filters li button {
+  border: none;
+  transition: 0.3s;
+}
+.filters li button.active,
+.filters li button.active:active {
+  background-color: var(--button-background);
+  color: rgba(var(--bs-warning-rgb), var(--bs-text-opacity)) !important;
+}
+.filters li button:not(.active):hover {
+  color: var(--button-background) !important;
+}
+.projects .box {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.projects .box::before {
+  content: "Application";
+  width: 100%;
+  height: 100%;
+  background-color: #33d1ccaf;
+  color: white;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+.projects .box:hover::before {
+  right: 0;
+}
+#portfolio .see-more {
+  background-color: var(--button-background);
+  border: none;
+}
+/* End Portfolio */
