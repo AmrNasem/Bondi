@@ -193,6 +193,12 @@ button.login:focus {
   background-color: var(--green-color);
 }
 /* End 'Meet the team' */
-/* Start Sponsors */
-
-/* End Sponsors */
+/* Start Order Project */
+.order-project {
+  background-color: var(--dark-color);
+}
+.order-project button,
+.order-project button:hover {
+  background-color: var(--button-background);
+}
+/* End Order Project */
