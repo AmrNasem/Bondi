@@ -68,6 +68,7 @@ const projectModal = (src, alt) => {
 
 activateLink(navLinks);
 activateLink(filters, true);
+
 projectsList.forEach((project) =>
   project.addEventListener("click", () =>
     portfolio.prepend(

@@ -207,3 +207,16 @@ button.login:focus {
   background-color: var(--button-background);
 }
 /* End Blog */
+/* Start Subscribe */
+.subscribe form input[type="email"] {
+  outline: none;
+}
+.subscribe form input[type="email"]::placeholder {
+  color: white;
+}
+.subscribe form button,
+.subscribe form button:hover,
+.subscribe form button:active {
+  background-color: var(--dark-color) !important;
+}
+/* End Subscribe */
