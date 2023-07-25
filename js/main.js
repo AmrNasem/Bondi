@@ -38,7 +38,7 @@ const filterProjects = (link) => {
 
 const projectModal = (src, alt) => {
   const modal = document.createElement("div");
-  modal.className = "modal1 position-fixed top-0 w-100 h-100";
+  modal.className = "my-modal position-fixed top-0 w-100 h-100";
   modal.onclick = () => {
     portfolio.removeChild(modal);
   };

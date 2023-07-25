@@ -113,17 +113,17 @@ button.login:focus {
 .portfolio {
   background-color: var(--section-color);
 }
-.modal1 {
+.my-modal {
   background-color: #0000009b;
   z-index: 2000;
 }
-.modal1 .project {
+.my-modal .project {
   transform: translateY(-50%);
 }
-.modal1 .project .image {
+.my-modal .project .image {
   max-width: 900px;
 }
-.modal1 .project .image .dismiss {
+.my-modal .project .image .dismiss {
   width: 30px;
   height: 30px;
   right: 5px;
@@ -170,3 +170,18 @@ button.login:focus {
   border: none;
 }
 /* End Portfolio */
+/* Start About */
+.about .description {
+  max-width: 500px;
+}
+.design-example .design-desc h3 {
+  color: var(--dark-color);
+}
+.design-example .design-desc button,
+.design-example .design-desc button:active {
+  background-color: var(--button-background);
+}
+.design-example .design-image {
+  min-width: 50%;
+}
+/* End About */
