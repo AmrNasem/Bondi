@@ -185,3 +185,11 @@ button.login:focus {
   min-width: 50%;
 }
 /* End About */
+/* Start 'Meet the team' */
+.meet-team {
+  background-color: var(--section-color);
+}
+.meet-team .member h3 {
+  background-color: var(--green-color);
+}
+/* End 'Meet the team' */
