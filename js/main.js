@@ -2,38 +2,15 @@ const navLinks = document.querySelectorAll("#nav-id .nav-link");
 const filters = document.querySelectorAll("#portfolio .filters li button");
 const projectsList = document.querySelectorAll("#portfolio .projects > div");
 const portfolio = document.getElementById("portfolio");
-
-const activateLink = (links, action = false) => {
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (link.getAttribute("href") === "#home") window.scrollTo(0, 0);
-      links.forEach((li) => li.classList.remove("active"));
-      link.classList.add("active");
-      if (action) {
-        filterProjects(link);
-      }
-    });
+const sections = Array.from(document.getElementsByTagName("section"))
+  .filter((sec) => sec.getAttribute("id"))
+  .map((sec) => {
+    return { distance: sec.offsetTop, height: sec.offsetHeight, id: sec.id };
   });
-};
 
-const filterProjects = (link) => {
-  const projects = document.querySelector("#portfolio .projects");
-  let newChildren = projectsList;
-  if (link.getAttribute("key") !== "all") {
-    newChildren = Array.from(projectsList).filter(
-      (singleProject) =>
-        link.getAttribute("key") === singleProject.dataset.category
-    );
-  }
-
-  if (newChildren.length === 0) {
-    const noProjectsAlert = document.createElement("div");
-    noProjectsAlert.className = " text-center fs-3 alert alert-primary";
-    noProjectsAlert.innerText = "No Projects Found!";
-    projects.replaceChildren(noProjectsAlert);
-  } else {
-    projects.replaceChildren(...newChildren);
-  }
+const activateLink = (links, link) => {
+  links.forEach((li) => li.classList.remove("active"));
+  link.classList.add("active");
 };
 
 const projectModal = (src, alt) => {
@@ -66,8 +43,36 @@ const projectModal = (src, alt) => {
   return modal;
 };
 
-activateLink(navLinks);
-activateLink(filters, true);
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (link.getAttribute("href") === "#home") window.scrollTo(0, 0);
+    activateLink(navLinks, link);
+  });
+});
+
+filters.forEach((link) => {
+  link.addEventListener("click", () => {
+    const projects = document.querySelector("#portfolio .projects");
+    let newChildren = projectsList;
+    if (link.getAttribute("key") !== "all") {
+      newChildren = Array.from(projectsList).filter(
+        (singleProject) =>
+          link.getAttribute("key") === singleProject.dataset.category
+      );
+    }
+
+    activateLink(filters, link);
+
+    if (newChildren.length === 0) {
+      const noProjectsAlert = document.createElement("div");
+      noProjectsAlert.className = " text-center fs-3 alert alert-primary";
+      noProjectsAlert.innerText = "No Projects Found!";
+      projects.replaceChildren(noProjectsAlert);
+    } else {
+      projects.replaceChildren(...newChildren);
+    }
+  });
+});
 
 projectsList.forEach((project) =>
   project.addEventListener("click", () =>
@@ -79,3 +84,18 @@ projectsList.forEach((project) =>
     )
   )
 );
+
+window.addEventListener("scroll", () => {
+  sections.forEach((sec) => {
+    if (
+      window.scrollY >= sec.distance - 3 ||
+      window.scrollY + 1.2 * window.innerHeight >= sec.distance + sec.height
+    ) {
+      navLinks.forEach((link) => {
+        if (link.getAttribute("href") === `#${sec.id}`) {
+          activateLink(navLinks, link);
+        }
+      });
+    }
+  });
+});
